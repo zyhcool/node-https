@@ -7,6 +7,4 @@ WORKDIR /usr/src/nodeHttps/
 
 COPY . /usr/src/nodeHttps/
 
-RUN npm install
-
 CMD npm run start
