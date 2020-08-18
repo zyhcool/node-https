@@ -1,9 +1,11 @@
 const https = require('https')
+const fs = require('fs');
+const path = require('path')
 
 const port = 443;
 const httpsOptions = {
-    key: fs.readFileSync('./certificate/private.pem'),
-    cert: fs.readFileSync('./certificate/private.pem')
+    key: fs.readFileSync(path.resolve(__dirname, './certificate/private.pem')),
+    cert: fs.readFileSync(path.resolve(__dirname, './certificate/ca.crt'))
 }
 
 
@@ -16,6 +18,3 @@ https
     .listen(port, () => {
         console.log(`listen at ${port}`)
     })
-
-
-
