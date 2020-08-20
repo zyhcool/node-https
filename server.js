@@ -11,10 +11,16 @@ const httpsOptions = {
 
 https
     .createServer(httpsOptions, async (req, res) => {
-        console.log(`this is https`)
+        // res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubdomains; preload")
         res.statusCode = 200;
-        res.end();
+        res.end(`this is https`);
     })
     .listen(port, () => {
         console.log(`listen at ${port}`)
     })
+
+const http = require('http')
+http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.end('this is http');
+}).listen(80)
